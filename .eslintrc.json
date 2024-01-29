@@ -15,5 +15,19 @@
         "react"
     ],
     "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/semi": "off",
+        "@typescript-eslint/space-before-function-paren": "off",
+        "@typescript-eslint/non-nullable-type-assertion-style": "off",
+        "@typescript-eslint/consistent-type-imports": "off",
+        "@typescript-eslint/triple-slash-reference": "off",
+        "@typescript-eslint/no-floating-promises": "off",
+        "@typescript-eslint/strict-boolean-expressions ": "off",
+        "@typescript-eslint/strict-boolean-expressions": "off"
+
+
+
+
+
     }
 }
