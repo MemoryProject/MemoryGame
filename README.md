@@ -1,4 +1,4 @@
-![img.png](img.png)
+![img.png](img_README.png)
 
 ## Description
 
