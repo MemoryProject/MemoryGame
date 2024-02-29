@@ -10,6 +10,18 @@ const Game: React.FC = () => {
     const [seconds, setSeconds] = useState<number>(0);
     const [moves, setMoves] = useState<number>(0);
 
+    useEffect(() => {
+        let interval: NodeJS.Timeout;
+        if (isGameStarted) {
+            interval = setInterval(() => {
+                setSeconds(seconds => seconds + 1);
+            }, 1000);
+        }
+        return () => {
+            clearInterval(interval);
+        };
+    }, [isGameStarted]);
+
     // Mélangez les cartes et affichez-les
     const cards = useMemo(() => ([
         { id: 1, name: 'card1', image: './MemoryGame/images/book.png', backimage: '../MemoryGame/images/back.png' },
@@ -55,15 +67,6 @@ const Game: React.FC = () => {
     const flipBack = () => {
         // Votre logique pour retourner la carte ici...
     };
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setSeconds(seconds => seconds + 1);
-        }, 1000);
-        return () => {
-            clearInterval(interval);
-        };
-    }, []);
 
     const handleFlip = (id: number) => {
         setFlippedCards((prev) => [...prev, id]);
