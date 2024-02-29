@@ -1,35 +1,34 @@
 // 1. Créer un tableau d'objets pour les cartes du jeu
 // 2. Créer un composant Cards
-import React, { useState } from 'react';
+import React from 'react';
 import '../pages/App.css';
+
 interface CardProps {
     id: number;
     name: string;
     image: string;
-    backimage: string;
+    backImage: string;
     onFlip: (id: number) => void;
-    flipBack: () => void;
+    flippedCards: number[];
+    matchedCards: number[];
 }
 
-const Cards: React.FC<CardProps> = ({ id, image, onFlip }) => {
-    const [isFlipped, setIsFlipped] = useState(false);
-    const [isSelected, setIsSelected] = useState(false);
+const Cards: React.FC<CardProps> = ({ id, image, onFlip, flippedCards, backImage, matchedCards }) => {
+    const isFlipped = flippedCards.includes(id) || matchedCards.includes(id);
+    const isSelected = matchedCards.includes(id);
 
     const handleFlip = () => {
-        setIsFlipped(!isFlipped);
-        setIsSelected(true);
-        onFlip(id);
-    };
-
-    const flipBack = () => {
-        setIsFlipped(false);
+        if (flippedCards.length < 2 && !isSelected) {
+            onFlip(id);
+        }
     };
 
     return (
-        <div onClick={isSelected ? undefined : handleFlip}>
-            {isFlipped ? <img src={image} alt="card" /> : 'back'}
+        <div onClick={handleFlip}>
+            {isFlipped
+                ? <img className="card-image" src={image} alt="card"/>
+                : <img className="card-image" src={backImage} alt="card"/>}
         </div>
     );
 };
-
 export default Cards;

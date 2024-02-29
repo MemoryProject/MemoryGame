@@ -1,17 +1,82 @@
 .game-frame {
-  border: 2px solid black;
-  padding: 150px;
-  width: 80%;
-  margin: auto;
-  background-color: #f0f0f0;
+    border: 2px solid black;
+    padding: 150px;
+    width: 80%;
+    margin: auto;
+    background-color: #f0f0f0;
 }
 
 .card-image {
-  width: 150px;
-  height: 150px;
+    width: 150px;
+    height: 150px;
+    image-rendering: pixelated;
 }
 
-.startGame {
-  width: 300px; /* Augmentez cette valeur pour augmenter la largeur du bouton */
-  height: 50px; /* Augmentez cette valeur pour augmenter la hauteur du bouton */
+.memory-box {
+    width: 680px;
+    padding: 10px;
+    margin: auto;
+    display: flex;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 8px 10px 22px rgba(0, 0, 0, 0.15);
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.card {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: lightgrey;
+    box-shadow: #d11bff42 0 15px 40px -5px;
+    z-index: 1;
+    border-radius: 21px;
+    overflow: hidden;
+}
+
+.card__content {
+    background: linear-gradient(rgba(255, 255, 255, 0.473), rgba(150, 150, 150, 0.25));
+    z-index: 1;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 21px;
+}
+
+.card .blob {
+    position: absolute;
+    z-index: -1;
+    border-radius: 5em;
+    width: 200px;
+    height: 200px;
+}
+
+.card .blob:nth-child(2) {
+    left: -50px;
+    top: -90px;
+    background: #ff930f;
+}
+
+.card .blob:nth-child(3) {
+    left: 110px;
+    top: -20px;
+    z-index: -1;
+    background: #bf0fff;
+}
+
+.card .blob:nth-child(4) {
+    left: -40px;
+    top: 100px;
+    background: #ff1b6b;
+}
+
+.card .blob:nth-child(5) {
+    left: 100px;
+    top: 180px;
+    background: #0061ff;
 }

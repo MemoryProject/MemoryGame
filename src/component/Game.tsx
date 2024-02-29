@@ -11,27 +11,92 @@ const Game: React.FC = () => {
 
     // Mélangez les cartes et affichez-les
     const cards = useMemo(() => ([
-        { id: 1, name: 'card1', image: './MemoryGame/images/book.png', backimage: '../MemoryGame/images/back.png' },
-        { id: 2, name: 'card2', image: './MemoryGame/images/bow_02.png', backimage: '../MemoryGame/images/back.png' },
-        { id: 3, name: 'card3', image: './MemoryGame/images/green_mushroom.png', backimage: '../MemoryGame/images/back.png' },
-        { id: 4, name: 'card4', image: './MemoryGame/images/ring_02.png', backimage: '../MemoryGame/images/back.png' },
-        { id: 5, name: 'card5', image: './MemoryGame/images/sword_01.png', backimage: '../MemoryGame/images/back.png' },
-        { id: 6, name: 'card6', image: './MemoryGame/images/wand_01.png', backimage: '../MemoryGame/images/back.png' },
-        { id: 7, name: 'card7', image: './MemoryGame/images/wooden_box.png', backimage: '../MemoryGame/images/back.png' },
-        { id: 8, name: 'card8', image: './MemoryGame/images/wooden_shield.png', backimage: '../MemoryGame/images/back.png' },
-        { id: 9, name: 'card9', image: './MemoryGame/images/book.png', backimage: '../MemoryGame/images/back.png' },
-        { id: 10, name: 'card10', image: './MemoryGame/images/bow_02.png', backimage: '../MemoryGame/images/back.png' },
-        { id: 11, name: 'card11', image: './MemoryGame/images/green_mushroom.png', backimage: '../MemoryGame/images/back.png' },
-        { id: 12, name: 'card12', image: './MemoryGame/images/ring_02.png', backimage: '../MemoryGame/images/back.png' },
-        { id: 13, name: 'card13', image: './MemoryGame/images/sword_01.png', backimage: '../MemoryGame/images/back.png' },
-        { id: 14, name: 'card14', image: './MemoryGame/images/wand_01.png', backimage: '../MemoryGame/images/back.png' },
-        { id: 15, name: 'card15', image: './MemoryGame/images/wooden_box.png', backimage: '../MemoryGame/images/back.png' },
-        { id: 16, name: 'card16', image: './MemoryGame/images/wooden_shield.png', backimage: '../MemoryGame/images/back.png' }
+        { id: 1, name: 'card1', image: './MemoryGame/images/book.png', backimage: './MemoryGame/images/card_back.png' },
+        { id: 2, name: 'card2', image: './MemoryGame/images/bow_02.png', backimage: './MemoryGame/images/card_back.png' },
+        {
+            id: 3,
+            name: 'card3',
+            image: './MemoryGame/images/green_mushroom.png',
+            backimage: './MemoryGame/images/card_back.png'
+        },
+        {
+            id: 4,
+            name: 'card4',
+            image: './MemoryGame/images/ring_02.png',
+            backimage: './MemoryGame/images/card_back.png'
+        },
+        {
+            id: 5,
+            name: 'card5',
+            image: './MemoryGame/images/sword_01.png',
+            backimage: './MemoryGame/images/card_back.png'
+        },
+        {
+            id: 6,
+            name: 'card6',
+            image: './MemoryGame/images/wand_01.png',
+            backimage: './MemoryGame/images/card_back.png'
+        },
+        {
+            id: 7,
+            name: 'card7',
+            image: './MemoryGame/images/wooden_box.png',
+            backimage: './MemoryGame/images/card_back.png'
+        },
+        {
+            id: 8,
+            name: 'card8',
+            image: './MemoryGame/images/wooden_shield.png',
+            backimage: './MemoryGame/images/card_back.png'
+        },
+        { id: 9, name: 'card1', image: './MemoryGame/images/book.png', backimage: './MemoryGame/images/card_back.png' },
+        {
+            id: 10,
+            name: 'card2',
+            image: './MemoryGame/images/bow_02.png',
+            backimage: './MemoryGame/images/card_back.png'
+        },
+        {
+            id: 11,
+            name: 'card3',
+            image: './MemoryGame/images/green_mushroom.png',
+            backimage: './MemoryGame/images/card_back.png'
+        },
+        {
+            id: 12,
+            name: 'card4',
+            image: './MemoryGame/images/ring_02.png',
+            backimage: './MemoryGame/images/card_back.png'
+        },
+        {
+            id: 13,
+            name: 'card5',
+            image: './MemoryGame/images/sword_01.png',
+            backimage: './MemoryGame/images/card_back.png'
+        },
+        {
+            id: 14,
+            name: 'card6',
+            image: './MemoryGame/images/wand_01.png',
+            backimage: './MemoryGame/images/card_back.png'
+        },
+        {
+            id: 15,
+            name: 'card7',
+            image: './MemoryGame/images/wooden_box.png',
+            backimage: './MemoryGame/images/card_back.png'
+        },
+        {
+            id: 16,
+            name: 'card8',
+            image: './MemoryGame/images/wooden_shield.png',
+            backimage: './MemoryGame/images/card_back.png'
+        }
 
     ].sort(() => Math.random() - 0.5)), []);
 
     const rows = useMemo(() => {
-        const rowSize = 8; // Nombre de cartes par ligne
+        const rowSize = 4; // Nombre de cartes par ligne
         return Array.from({ length: Math.ceil(cards.length / rowSize) }, (_, i) => cards.slice(i * rowSize, i * rowSize + rowSize));
     }, [cards]);
 
@@ -51,10 +116,6 @@ const Game: React.FC = () => {
         setSeconds(0);
     };
 
-    const flipBack = () => {
-        // Votre logique pour retourner la carte ici...
-    };
-
     useEffect(() => {
         const interval = setInterval(() => {
             setSeconds(seconds => seconds + 1);
@@ -65,23 +126,42 @@ const Game: React.FC = () => {
     }, []);
 
     const handleFlip = (id: number) => {
-        setFlippedCards((prev) => [...prev, id]);
+        const newFlippedCards = [...flippedCards, id];
+        if (newFlippedCards.length > 2) {
+            const [firstCardId, secondCardId] = newFlippedCards;
+            const firstCard = cards.find(card => card.id === firstCardId);
+            const secondCard = cards.find(card => card.id === secondCardId);
 
-        if (flippedCards.length === 1) {
-            // Si les deux cartes correspondent
-            if (flippedCards[0] === id) {
-                setMatchedCards((prev) => [...prev, id]);
+            if (firstCard && secondCard && firstCard.name === secondCard.name && firstCardId !== secondCardId) {
+                return;
             }
-            // Réinitialisez l'état après un court délai
-            setTimeout(() => {
-                setFlippedCards([]);
-            }, 1000);
+        }
+
+        setFlippedCards(newFlippedCards);
+
+        if (newFlippedCards.length === 2) {
+            const [firstCardId, secondCardId] = newFlippedCards;
+            const firstCard = cards.find(card => card.id === firstCardId);
+            const secondCard = cards.find(card => card.id === secondCardId);
+
+            if (firstCard && secondCard && firstCard.name === secondCard.name && firstCardId !== secondCardId) {
+                setMatchedCards((prev) => [...prev, firstCardId, secondCardId]);
+                setTimeout(() => {
+                    setFlippedCards([]);
+                }, 1000);
+            } else {
+                setTimeout(() => {
+                    setFlippedCards([]);
+                }, 1000);
+            }
         }
     }
 
     useEffect(() => {
         if (matchedCards.length === cards.length) {
-            alert('Vous avez gagné !');
+            setTimeout(() => {
+                alert('Vous avez gagné !');
+            }, 1000);
         }
     }, [matchedCards, cards]);
 
@@ -104,19 +184,39 @@ const Game: React.FC = () => {
                             : (
                                 <>
                                     <p>Temps écoulé : {seconds} secondes</p>
-                                    <table>
-                                        <tbody>
-                                        {rows.map((row, i) => (
-                                            <tr key={i}>
-                                                {row.map((card) => (
-                                                    <td key={card.id}>
-                                                        <Card id={card.id} name={card.name} image={card.image} backimage={card.backimage} onFlip={handleFlip} flipBack={flipBack}/>
-                                                    </td>
-                                                ))}
-                                            </tr>
-                                        ))}
-                                        </tbody>
-                                    </table>
+                                    <section className="memory-box">
+                                        <table>
+                                            <tbody>
+                                            {rows.map((row, i) => (
+                                                <tr key={i}>
+                                                    {row.map((card) => (
+
+                                                        <td key={card.id}>
+                                                            <div className="card">
+                                                                <div className="card__content">
+                                                                    <div className="blob">
+                                                                        <div className="blob">
+                                                                            <div className="blob">
+                                                                                <div className="blob">
+                                                                                    <Card id={card.id} name={card.name}
+                                                                                          image={card.image}
+                                                                                          backImage={card.backimage}
+                                                                                          onFlip={handleFlip}
+                                                                                          flippedCards={flippedCards}
+                                                                                          matchedCards={matchedCards}/>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    ))}
+                                                </tr>
+                                            ))}
+                                            </tbody>
+                                        </table>
+                                    </section>
                                 </>
                             )}
                     </>
