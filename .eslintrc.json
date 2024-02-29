@@ -23,7 +23,10 @@
         "@typescript-eslint/triple-slash-reference": "off",
         "@typescript-eslint/no-floating-promises": "off",
         "@typescript-eslint/strict-boolean-expressions ": "off",
-        "@typescript-eslint/strict-boolean-expressions": "off"
+        "@typescript-eslint/strict-boolean-expressions": "off",
+        "@typescript-eslint/indent": "off",
+        "@typescript-eslint/member-delimiter-style": "off",
+        "@typescript-eslint/no-unused-vars": "off"
 
 
 
