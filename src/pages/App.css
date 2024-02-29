@@ -1,3 +1,17 @@
-.App {
-  text-align: center;
+.game-frame {
+  border: 2px solid black;
+  padding: 150px;
+  width: 80%;
+  margin: auto;
+  background-color: #f0f0f0;
+}
+
+.card-image {
+  width: 150px;
+  height: 150px;
+}
+
+.startGame {
+  width: 300px; /* Augmentez cette valeur pour augmenter la largeur du bouton */
+  height: 50px; /* Augmentez cette valeur pour augmenter la hauteur du bouton */
 }
