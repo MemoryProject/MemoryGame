@@ -8,6 +8,7 @@ const Game: React.FC = () => {
     const [flippedCards, setFlippedCards] = useState<number[]>([]);
     const [matchedCards, setMatchedCards] = useState<number[]>([]);
     const [seconds, setSeconds] = useState<number>(0);
+    const [moves, setMoves] = useState<number>(0);
 
     // Mélangez les cartes et affichez-les
     const cards = useMemo(() => ([
@@ -66,6 +67,7 @@ const Game: React.FC = () => {
 
     const handleFlip = (id: number) => {
         setFlippedCards((prev) => [...prev, id]);
+        setMoves((prev) => prev + 1);
 
         if (flippedCards.length === 1) {
             // Si les deux cartes correspondent
@@ -94,6 +96,7 @@ const Game: React.FC = () => {
                 : (
                     <>
                         <button onClick={endGame}>Terminer le jeu</button>
+                        <p>Mouvements effectués : {moves}</p>
                         {isGameOver
                             ? (
                                 <>
