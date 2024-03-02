@@ -8,6 +8,19 @@ const Game: React.FC = () => {
     const [flippedCards, setFlippedCards] = useState<number[]>([]);
     const [matchedCards, setMatchedCards] = useState<number[]>([]);
     const [seconds, setSeconds] = useState<number>(0);
+    const [moves, setMoves] = useState<number>(0);
+
+    useEffect(() => {
+        let interval: NodeJS.Timeout;
+        if (isGameStarted) {
+            interval = setInterval(() => {
+                setSeconds(seconds => seconds + 1);
+            }, 1000);
+        }
+        return () => {
+            clearInterval(interval);
+        };
+    }, [isGameStarted]);
 
     // Mélangez les cartes et affichez-les
     const cards = useMemo(() => ([
@@ -116,17 +129,9 @@ const Game: React.FC = () => {
         setSeconds(0);
     };
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setSeconds(seconds => seconds + 1);
-        }, 1000);
-        return () => {
-            clearInterval(interval);
-        };
-    }, []);
-
     const handleFlip = (id: number) => {
         const newFlippedCards = [...flippedCards, id];
+        setMoves(moves + 1);
         if (newFlippedCards.length > 2) {
             const [firstCardId, secondCardId] = newFlippedCards;
             const firstCard = cards.find(card => card.id === firstCardId);
@@ -174,6 +179,7 @@ const Game: React.FC = () => {
                 : (
                     <>
                         <button onClick={endGame}>Terminer le jeu</button>
+                        <p>Mouvements effectués : {moves}</p>
                         {isGameOver
                             ? (
                                 <>
