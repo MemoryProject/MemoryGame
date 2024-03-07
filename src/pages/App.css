@@ -1,3 +1,8 @@
+body {
+    background: linear-gradient(90deg, #02ccba 0%, #aa7ecd 100%);
+    font-family: 'Roboto', sans-serif;
+}
+
 .game-frame {
     display: flex;
     justify-content: center;
@@ -23,7 +28,7 @@
     /* Centrer les cartes verticalement */
     width: 660px;
     min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    background: #2e3d49;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     margin: auto;
@@ -65,4 +70,16 @@
 
 .score-panel p {
     margin: 0;
+}
+
+.restart-button {
+    padding: 2px 4px;
+    border: none;
+    border-radius: 8px;
+    background: #6a98c8;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 27px;
+    height: 27px;
 }
