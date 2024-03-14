@@ -1,9 +1,13 @@
+body {
+    background: linear-gradient(90deg, #02ccba 0%, #aa7ecd 100%);
+    font-family: 'Roboto', sans-serif;
+}
+
 .game-frame {
-    border: 2px solid black;
-    padding: 150px;
-    width: 80%;
-    margin: auto;
-    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .card-image {
@@ -13,70 +17,69 @@
 }
 
 .memory-box {
-    width: 680px;
-    padding: 10px;
-    margin: auto;
     display: flex;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 8px 10px 22px rgba(0, 0, 0, 0.15);
     flex-wrap: wrap;
-    perspective: 1000px;
+    justify-content: space-around; /* Espacement autour des cartes */
+    align-items: center; /* Centrer les cartes verticalement */
+    padding: 20px; /* Ajouter un peu d'espace autour des cartes */
+    grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+    gap: 20px; /* Espacement entre les cartes */
+    justify-items: center; /* Centrer les cartes horizontalement */
+    /* Centrer les cartes verticalement */
+    width: 660px;
+    min-height: 680px;
+    background: #2e3d49;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    margin: auto;
 }
 
 .card {
+    margin: 10px;
     position: relative;
-    width: 150px;
-    height: 150px;
-    background: lightgrey;
-    box-shadow: #d11bff42 0 15px 40px -5px;
+    height: 125px;
+    width: 125px;
+    background: #2e3d49;
+    cursor: pointer;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
     z-index: 1;
     border-radius: 21px;
     overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
-.card__content {
-    background: linear-gradient(rgba(255, 255, 255, 0.473), rgba(150, 150, 150, 0.25));
-    z-index: 1;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 21px;
+.card img {
+    width: 130px; /* La largeur de l'image sera la même que celle de son conteneur */
+    height: 130px; /* La hauteur de l'image sera la même que celle de son conteneur */
+    object-fit: cover; /* L'image sera redimensionnée pour couvrir entièrement son conteneur tout en conservant son aspect ratio */
 }
 
-.card .blob {
-    position: absolute;
-    z-index: -1;
-    border-radius: 5em;
-    width: 200px;
-    height: 200px;
+.card-flipped {
+    transform: rotateY(180deg);
 }
 
-.card .blob:nth-child(2) {
-    left: -50px;
-    top: -90px;
-    background: #ff930f;
+.score-panel {
+    display: flex;
+    text-align: left;
+    width: 620px;
+    margin-bottom: 10px;
+    justify-content: space-between;
 }
 
-.card .blob:nth-child(3) {
-    left: 110px;
-    top: -20px;
-    z-index: -1;
-    background: #bf0fff;
+.score-panel p {
+    margin: 0;
 }
 
-.card .blob:nth-child(4) {
-    left: -40px;
-    top: 100px;
-    background: #ff1b6b;
-}
-
-.card .blob:nth-child(5) {
-    left: 100px;
-    top: 180px;
-    background: #0061ff;
+.restart-button {
+    padding: 2px 4px;
+    border: none;
+    border-radius: 8px;
+    background: #6a98c8;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 27px;
+    height: 27px;
 }
