@@ -81,7 +81,6 @@ const Game: React.FC = () => {
 
     const handleFlip = (id: number) => {
         const newFlippedCards = [...flippedCards, id];
-        setMoves(moves + 1);
         if (newFlippedCards.length > 2) {
             const [firstCardId, secondCardId] = newFlippedCards;
             const firstCard = cards.find(card => card.id === firstCardId);
@@ -95,6 +94,7 @@ const Game: React.FC = () => {
         setFlippedCards(newFlippedCards);
 
         if (newFlippedCards.length === 2) {
+            setMoves(moves + 1); // Comptabilise un mouvement lorsque deux cartes sont retournées
             const [firstCardId, secondCardId] = newFlippedCards;
             const firstCard = cards.find(card => card.id === firstCardId);
             const secondCard = cards.find(card => card.id === secondCardId);
