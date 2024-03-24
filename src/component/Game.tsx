@@ -2,6 +2,14 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Card from './Cards';
 import '../pages/App.css';
 
+// Créer un tableau d'objets pour les cartes du jeu
+interface CardType {
+    id: number;
+    name: string;
+    image: string;
+    backimage: string;
+}
+
 const Game: React.FC = () => {
     const [isGameStarted, setIsGameStarted] = useState(false);
     const [isGameOver, setIsGameOver] = useState(false);
@@ -9,6 +17,7 @@ const Game: React.FC = () => {
     const [matchedCards, setMatchedCards] = useState<number[]>([]);
     const [seconds, setSeconds] = useState<number>(0);
     const [moves, setMoves] = useState<number>(0);
+    const [cards, setCards] = useState<CardType[]>([]);
 
     useEffect(() => {
         let interval: NodeJS.Timeout;
@@ -22,91 +31,31 @@ const Game: React.FC = () => {
         };
     }, [isGameStarted]);
 
-    // Mélangez les cartes et affichez-les
-    const cards = useMemo(() => ([
-        { id: 1, name: 'card1', image: './MemoryGame/images/book.png', backimage: './MemoryGame/images/card_back.png' },
-        { id: 2, name: 'card2', image: './MemoryGame/images/bow_02.png', backimage: './MemoryGame/images/card_back.png' },
-        {
-            id: 3,
-            name: 'card3',
-            image: './MemoryGame/images/green_mushroom.png',
-            backimage: './MemoryGame/images/card_back.png'
-        },
-        {
-            id: 4,
-            name: 'card4',
-            image: './MemoryGame/images/ring_02.png',
-            backimage: './MemoryGame/images/card_back.png'
-        },
-        {
-            id: 5,
-            name: 'card5',
-            image: './MemoryGame/images/sword_01.png',
-            backimage: './MemoryGame/images/card_back.png'
-        },
-        {
-            id: 6,
-            name: 'card6',
-            image: './MemoryGame/images/wand_01.png',
-            backimage: './MemoryGame/images/card_back.png'
-        },
-        {
-            id: 7,
-            name: 'card7',
-            image: './MemoryGame/images/wooden_box.png',
-            backimage: './MemoryGame/images/card_back.png'
-        },
-        {
-            id: 8,
-            name: 'card8',
-            image: './MemoryGame/images/wooden_shield.png',
-            backimage: './MemoryGame/images/card_back.png'
-        },
-        { id: 9, name: 'card1', image: './MemoryGame/images/book.png', backimage: './MemoryGame/images/card_back.png' },
-        {
-            id: 10,
-            name: 'card2',
-            image: './MemoryGame/images/bow_02.png',
-            backimage: './MemoryGame/images/card_back.png'
-        },
-        {
-            id: 11,
-            name: 'card3',
-            image: './MemoryGame/images/green_mushroom.png',
-            backimage: './MemoryGame/images/card_back.png'
-        },
-        {
-            id: 12,
-            name: 'card4',
-            image: './MemoryGame/images/ring_02.png',
-            backimage: './MemoryGame/images/card_back.png'
-        },
-        {
-            id: 13,
-            name: 'card5',
-            image: './MemoryGame/images/sword_01.png',
-            backimage: './MemoryGame/images/card_back.png'
-        },
-        {
-            id: 14,
-            name: 'card6',
-            image: './MemoryGame/images/wand_01.png',
-            backimage: './MemoryGame/images/card_back.png'
-        },
-        {
-            id: 15,
-            name: 'card7',
-            image: './MemoryGame/images/wooden_box.png',
-            backimage: './MemoryGame/images/card_back.png'
-        },
-        {
-            id: 16,
-            name: 'card8',
-            image: './MemoryGame/images/wooden_shield.png',
-            backimage: './MemoryGame/images/card_back.png'
+    // Lorsque isGameStarted passe de true à false, vous pouvez mélanger à nouveau les cartes.
+    useEffect(() => {
+        if (!isGameStarted) {
+            // Mélangez les cartes et affichez-les
+            const newCards = [
+                { id: 1, name: 'card1', image: './MemoryGame/images/book.png', backimage: './MemoryGame/images/card_back.png' },
+                { id: 2, name: 'card2', image: './MemoryGame/images/bow_02.png', backimage: './MemoryGame/images/card_back.png' },
+                { id: 3, name: 'card3', image: './MemoryGame/images/green_mushroom.png', backimage: './MemoryGame/images/card_back.png' },
+                { id: 4, name: 'card4', image: './MemoryGame/images/ring_02.png', backimage: './MemoryGame/images/card_back.png' },
+                { id: 5, name: 'card5', image: './MemoryGame/images/sword_01.png', backimage: './MemoryGame/images/card_back.png' },
+                { id: 6, name: 'card6', image: './MemoryGame/images/wand_01.png', backimage: './MemoryGame/images/card_back.png' },
+                { id: 7, name: 'card7', image: './MemoryGame/images/wooden_box.png', backimage: './MemoryGame/images/card_back.png' },
+                { id: 8, name: 'card8', image: './MemoryGame/images/wooden_shield.png', backimage: './MemoryGame/images/card_back.png' },
+                { id: 9, name: 'card1', image: './MemoryGame/images/book.png', backimage: './MemoryGame/images/card_back.png' },
+                { id: 10, name: 'card2', image: './MemoryGame/images/bow_02.png', backimage: './MemoryGame/images/card_back.png' },
+                { id: 11, name: 'card3', image: './MemoryGame/images/green_mushroom.png', backimage: './MemoryGame/images/card_back.png' },
+                { id: 12, name: 'card4', image: './MemoryGame/images/ring_02.png', backimage: './MemoryGame/images/card_back.png' },
+                { id: 13, name: 'card5', image: './MemoryGame/images/sword_01.png', backimage: './MemoryGame/images/card_back.png' },
+                { id: 14, name: 'card6', image: './MemoryGame/images/wand_01.png', backimage: './MemoryGame/images/card_back.png' },
+                { id: 15, name: 'card7', image: './MemoryGame/images/wooden_box.png', backimage: './MemoryGame/images/card_back.png' },
+                { id: 16, name: 'card8', image: './MemoryGame/images/wooden_shield.png', backimage: './MemoryGame/images/card_back.png' }
+            ].sort(() => Math.random() - 0.5);
+            setCards(newCards);
         }
-
-    ].sort(() => Math.random() - 0.5)), []);
+    }, [isGameStarted]);
 
     const rows = useMemo(() => {
         const rowSize = 4; // Nombre de cartes par ligne
@@ -127,6 +76,7 @@ const Game: React.FC = () => {
         setFlippedCards([]);
         setMatchedCards([]);
         setSeconds(0);
+        setMoves(0);
     };
 
     const handleFlip = (id: number) => {
@@ -174,7 +124,7 @@ const Game: React.FC = () => {
         <div className="game-frame">
             {!isGameStarted
                 ? (
-                    <button onClick={startGame}>Commencer le jeu</button>
+                    <button onClick={startGame}>Commence le jeu</button>
                 )
                 : (
                     <>
@@ -182,7 +132,6 @@ const Game: React.FC = () => {
                             ? (
                                 <>
                                     <div>Le jeu est terminé !</div>
-                                    <button onClick={restartGame}>Recommencer le jeu</button>
                                 </>
                             )
                             : (
