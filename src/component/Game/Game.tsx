@@ -18,6 +18,7 @@ const Game: React.FC = () => {
     const [seconds, setSeconds] = useState<number>(0);
     const [moves, setMoves] = useState<number>(0);
     const [cards, setCards] = useState<CardType[]>([]);
+    const [errors, setErrors] = useState<number>(0);
 
     useEffect(() => {
         let interval: NodeJS.Timeout;
@@ -105,6 +106,7 @@ const Game: React.FC = () => {
                     setFlippedCards([]);
                 }, 1000);
             } else {
+                setErrors(errors + 1)// Comptabilise une erreur lorsque deux cartes ne correspondent pas
                 setTimeout(() => {
                     setFlippedCards([]);
                 }, 1000);
@@ -139,10 +141,11 @@ const Game: React.FC = () => {
                                     <header>
                                         <h1>Memory</h1>
                                     </header>
-                                    <section className="score-panel">
-                                        <p><span id="moves">{moves}</span> Moves</p>
-                                        <div id="timer">Temps : {seconds} s</div>
-                                        <button className="restart-button" id="restartClick">
+                                    <section className="score-panel"> {/* Affiche le score */}
+                                        <p><span id="moves">{moves}</span> Moves</p> {/* Affiche le nombre de mouvements */}
+                                        <p><span id="errors">{errors}</span> Errors</p> {/* Affiche le nombre d'erreurs */}
+                                        <div id="timer">Temps : {seconds} s</div> {/* Affiche le temps écoulé */}
+                                        <button className="restart-button" id="restartClick"> {/* Bouton pour redémarrer le jeu */}
                                             <button className="restart-button" onClick={restartGame}>
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                      strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
