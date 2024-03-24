@@ -1,7 +1,7 @@
 // 1. Créer un tableau d'objets pour les cartes du jeu
 // 2. Créer un composant Cards
 import React, { useEffect, useState } from 'react';
-import '../pages/App.css';
+import '../../pages/App.css';
 
 interface CardProps {
     id: number;

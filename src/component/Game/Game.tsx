@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import Card from './Cards';
-import '../pages/App.css';
+import Card from '../Cards/Cards';
+import '../../pages/App.css';
 
 // Créer un tableau d'objets pour les cartes du jeu
 interface CardType {
