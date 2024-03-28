@@ -76,8 +76,9 @@ const Game: React.FC = () => {
         setIsGameOver(false);
         setFlippedCards([]);
         setMatchedCards([]);
-        setSeconds(0);
-        setMoves(0);
+        setSeconds(0); // Réinitialise les valeurs
+        setMoves(0); // Réinitialise les valeurs
+        setErrors(0); // Réinitialise les valeurs
     };
 
     const handleFlip = (id: number) => {
