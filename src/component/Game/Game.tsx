@@ -11,14 +11,14 @@ interface CardType {
 }
 
 const Game: React.FC = () => {
-    const [isGameStarted, setIsGameStarted] = useState(false);
-    const [isGameOver, setIsGameOver] = useState(false);
-    const [flippedCards, setFlippedCards] = useState<number[]>([]);
-    const [matchedCards, setMatchedCards] = useState<number[]>([]);
-    const [seconds, setSeconds] = useState<number>(0);
-    const [moves, setMoves] = useState<number>(0);
-    const [cards, setCards] = useState<CardType[]>([]);
-    const [errors, setErrors] = useState<number>(0);
+    const [isGameStarted, setIsGameStarted] = useState(false); // Détermine si le jeu a commencé
+    const [isGameOver, setIsGameOver] = useState(false); // Détermine si le jeu est terminé
+    const [flippedCards, setFlippedCards] = useState<number[]>([]); // Cartes retournées
+    const [matchedCards, setMatchedCards] = useState<number[]>([]); // Cartes correspondantes
+    const [seconds, setSeconds] = useState<number>(0); // Temps écoulé
+    const [moves, setMoves] = useState<number>(0); // Nombre de mouvements
+    const [cards, setCards] = useState<CardType[]>([]); // Cartes du jeu
+    const [errors, setErrors] = useState<number>(0);// Nombre d'erreurs
 
     useEffect(() => {
         let interval: NodeJS.Timeout;
@@ -114,7 +114,7 @@ const Game: React.FC = () => {
         }
     }
 
-    useEffect(() => {
+    useEffect(() => { // Vérifie si toutes les cartes sont retournées
         if (matchedCards.length === cards.length) {
             setTimeout(() => {
                 alert('Vous avez gagné !');
@@ -146,8 +146,8 @@ const Game: React.FC = () => {
                                         <p><span id="errors">{errors}</span> Errors</p> {/* Affiche le nombre d'erreurs */}
                                         <div id="timer">Temps : {seconds} s</div> {/* Affiche le temps écoulé */}
                                         <button className="restart-button" id="restartClick"> {/* Bouton pour redémarrer le jeu */}
-                                            <button className="restart-button" onClick={restartGame}>
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            <button className="restart-button" onClick={restartGame}> {/* Bouton pour redémarrer le jeu */}
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" // Icone de redémarrage
                                                      strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                                     <path strokeLinecap="round" strokeLinejoin="round"
                                                           d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"/>
