@@ -37,22 +37,102 @@ const Game: React.FC = () => {
         if (!isGameStarted) {
             // Mélangez les cartes et affichez-les
             const newCards = [
-                { id: 1, name: 'card1', image: './MemoryGame/images/book.png', backimage: './MemoryGame/images/card_back.png' },
-                { id: 2, name: 'card2', image: './MemoryGame/images/bow_02.png', backimage: './MemoryGame/images/card_back.png' },
-                { id: 3, name: 'card3', image: './MemoryGame/images/green_mushroom.png', backimage: './MemoryGame/images/card_back.png' },
-                { id: 4, name: 'card4', image: './MemoryGame/images/ring_02.png', backimage: './MemoryGame/images/card_back.png' },
-                { id: 5, name: 'card5', image: './MemoryGame/images/sword_01.png', backimage: './MemoryGame/images/card_back.png' },
-                { id: 6, name: 'card6', image: './MemoryGame/images/wand_01.png', backimage: './MemoryGame/images/card_back.png' },
-                { id: 7, name: 'card7', image: './MemoryGame/images/wooden_box.png', backimage: './MemoryGame/images/card_back.png' },
-                { id: 8, name: 'card8', image: './MemoryGame/images/wooden_shield.png', backimage: './MemoryGame/images/card_back.png' },
-                { id: 9, name: 'card1', image: './MemoryGame/images/book.png', backimage: './MemoryGame/images/card_back.png' },
-                { id: 10, name: 'card2', image: './MemoryGame/images/bow_02.png', backimage: './MemoryGame/images/card_back.png' },
-                { id: 11, name: 'card3', image: './MemoryGame/images/green_mushroom.png', backimage: './MemoryGame/images/card_back.png' },
-                { id: 12, name: 'card4', image: './MemoryGame/images/ring_02.png', backimage: './MemoryGame/images/card_back.png' },
-                { id: 13, name: 'card5', image: './MemoryGame/images/sword_01.png', backimage: './MemoryGame/images/card_back.png' },
-                { id: 14, name: 'card6', image: './MemoryGame/images/wand_01.png', backimage: './MemoryGame/images/card_back.png' },
-                { id: 15, name: 'card7', image: './MemoryGame/images/wooden_box.png', backimage: './MemoryGame/images/card_back.png' },
-                { id: 16, name: 'card8', image: './MemoryGame/images/wooden_shield.png', backimage: './MemoryGame/images/card_back.png' }
+                {
+                    id: 1,
+                    name: 'card1',
+                    image: './MemoryGame/images/book.png',
+                    backimage: './MemoryGame/images/card_back.png'
+                },
+                {
+                    id: 2,
+                    name: 'card2',
+                    image: './MemoryGame/images/bow_02.png',
+                    backimage: './MemoryGame/images/card_back.png'
+                },
+                {
+                    id: 3,
+                    name: 'card3',
+                    image: './MemoryGame/images/green_mushroom.png',
+                    backimage: './MemoryGame/images/card_back.png'
+                },
+                {
+                    id: 4,
+                    name: 'card4',
+                    image: './MemoryGame/images/ring_02.png',
+                    backimage: './MemoryGame/images/card_back.png'
+                },
+                {
+                    id: 5,
+                    name: 'card5',
+                    image: './MemoryGame/images/sword_01.png',
+                    backimage: './MemoryGame/images/card_back.png'
+                },
+                {
+                    id: 6,
+                    name: 'card6',
+                    image: './MemoryGame/images/wand_01.png',
+                    backimage: './MemoryGame/images/card_back.png'
+                },
+                {
+                    id: 7,
+                    name: 'card7',
+                    image: './MemoryGame/images/wooden_box.png',
+                    backimage: './MemoryGame/images/card_back.png'
+                },
+                {
+                    id: 8,
+                    name: 'card8',
+                    image: './MemoryGame/images/wooden_shield.png',
+                    backimage: './MemoryGame/images/card_back.png'
+                },
+                {
+                    id: 9,
+                    name: 'card1',
+                    image: './MemoryGame/images/book.png',
+                    backimage: './MemoryGame/images/card_back.png'
+                },
+                {
+                    id: 10,
+                    name: 'card2',
+                    image: './MemoryGame/images/bow_02.png',
+                    backimage: './MemoryGame/images/card_back.png'
+                },
+                {
+                    id: 11,
+                    name: 'card3',
+                    image: './MemoryGame/images/green_mushroom.png',
+                    backimage: './MemoryGame/images/card_back.png'
+                },
+                {
+                    id: 12,
+                    name: 'card4',
+                    image: './MemoryGame/images/ring_02.png',
+                    backimage: './MemoryGame/images/card_back.png'
+                },
+                {
+                    id: 13,
+                    name: 'card5',
+                    image: './MemoryGame/images/sword_01.png',
+                    backimage: './MemoryGame/images/card_back.png'
+                },
+                {
+                    id: 14,
+                    name: 'card6',
+                    image: './MemoryGame/images/wand_01.png',
+                    backimage: './MemoryGame/images/card_back.png'
+                },
+                {
+                    id: 15,
+                    name: 'card7',
+                    image: './MemoryGame/images/wooden_box.png',
+                    backimage: './MemoryGame/images/card_back.png'
+                },
+                {
+                    id: 16,
+                    name: 'card8',
+                    image: './MemoryGame/images/wooden_shield.png',
+                    backimage: './MemoryGame/images/card_back.png'
+                }
             ].sort(() => Math.random() - 0.5);
             setCards(newCards);
         }
@@ -115,14 +195,6 @@ const Game: React.FC = () => {
         }
     }
 
-    useEffect(() => { // Vérifie si toutes les cartes sont retournées
-        if (matchedCards.length === cards.length) {
-            setTimeout(() => {
-                alert('Vous avez gagné !');
-            }, 1000);
-        }
-    }, [matchedCards, cards]);
-
     return (
         <div className="game-frame">
             {!isGameStarted
@@ -143,12 +215,18 @@ const Game: React.FC = () => {
                                         <h1>Memory</h1>
                                     </header>
                                     <section className="score-panel"> {/* Affiche le score */}
-                                        <p><span id="moves">{moves}</span> Moves</p> {/* Affiche le nombre de mouvements */}
-                                        <p><span id="errors">{errors}</span> Errors</p> {/* Affiche le nombre d'erreurs */}
-                                        <div id="timer">Temps : {seconds} s</div> {/* Affiche le temps écoulé */}
-                                        <button className="restart-button" id="restartClick"> {/* Bouton pour redémarrer le jeu */}
-                                            <button className="restart-button" onClick={restartGame}> {/* Bouton pour redémarrer le jeu */}
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" // Icone de redémarrage
+                                        <p><span id="moves">{moves}</span> Moves
+                                        </p> {/* Affiche le nombre de mouvements */}
+                                        <p><span id="errors">{errors}</span> Errors
+                                        </p> {/* Affiche le nombre d'erreurs */}
+                                        <div id="timer">Temps : {seconds} s</div>
+                                        {/* Affiche le temps écoulé */}
+                                        <button className="restart-button"
+                                                id="restartClick"> {/* Bouton pour redémarrer le jeu */}
+                                            <button className="restart-button"
+                                                    onClick={restartGame}> {/* Bouton pour redémarrer le jeu */}
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                     viewBox="0 0 24 24" // Icone de redémarrage
                                                      strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                                     <path strokeLinecap="round" strokeLinejoin="round"
                                                           d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"/>
