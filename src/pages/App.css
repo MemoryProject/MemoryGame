@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(90deg, #02ccba 0%, #aa7ecd 100%);
+    background: linear-gradient(9deg, #25d2d2 0%, #25d2d2 100%);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -82,4 +82,197 @@ body {
     transition: background 0.3s;
     width: 27px;
     height: 27px;
+}
+
+
+.slide-wrapper {
+    display: inline-block;
+    margin: 1em;
+}
+
+.slide-wrapper img {
+    display: block;
+}
+
+.slide-wrapper .content {
+    background: rgb(238, 243, 242);
+    padding: 2rem;
+    display: inline-block;
+    min-width: 100%;
+    width: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+
+
+body > * {
+    text-align: left;
+}
+
+body > p {
+    text-align: right;
+}
+
+.photo {
+    width: 400px;
+    height: 300px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.cartes {
+    box-shadow: 10px 10px 70px #000000;
+}
+
+
+.cartes:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.content {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background: #f1f1f1;
+}
+
+
+.theme1-button {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(to bottom, #1b1c3f, #aa7ecd);
+    /* Gradient background */
+    color: #ffffff;
+    /* White text color */
+    font-family: "Segoe UI", sans-serif;
+    /* Stylish and legible font */
+    font-weight: bold;
+    font-size: 18px;
+    /* Large font size */
+    border: none;
+    /* No border */
+    border-radius: 10px;
+    /* Rounded corners */
+    padding: 14px 28px;
+    /* Large padding */
+    cursor: pointer;
+    /* Cursor on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+    animation: button-shimmer 2s infinite;
+    transition: all 0.3s ease-in-out;
+    /* Smooth transition */
+}
+
+
+.theme1-button:hover {
+    background: linear-gradient(to bottom, #3b3f3f, #aa7ecd);
+    animation: button-particles 1s ease-in-out infinite;
+    transform: translateY(-2px);
+
+}
+
+.theme1-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.theme2-button {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(to bottom, #1b1c3f, #aa7ecd);
+    /* Gradient background */
+    color: #ffffff;
+    /* White text color */
+    font-family: "Segoe UI", sans-serif;
+    /* Stylish and legible font */
+    font-weight: bold;
+    font-size: 18px;
+    /* Large font size */
+    border: none;
+    /* No border */
+    border-radius: 10px;
+    /* Rounded corners */
+    padding: 14px 28px;
+    /* Large padding */
+    cursor: pointer;
+    /* Cursor on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+    animation: button-shimmer 2s infinite;
+    transition: all 0.3s ease-in-out;
+    /* Smooth transition */
+
+}
+
+.theme2-button:hover {
+    background: linear-gradient(to bottom, #3b3f3f, #aa7ecd);
+    animation: button-particles 1s ease-in-out infinite;
+    transform: translateY(-2px);
+}
+
+.theme2-button:hover:after {
+    -webkit-transform: scale(2) rotate(180deg);
+    transform: scale(2) rotate(180deg);
+    box-shadow:  4px 4px 6px 0 rgba(59, 55, 152, 0.5),
+    -4px -4px 6px 0 rgba(116, 125, 136, .2),
+    inset -4px -4px 6px 0 rgba(102, 31, 224, 0.47),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+}
+
+.theme2-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.theme3-button {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(to bottom, #1b1c3f, #aa7ecd);
+    /* Gradient background */
+    color: #ffffff;
+    /* White text color */
+    font-family: "Segoe UI", sans-serif;
+    /* Stylish and legible font */
+    font-weight: bold;
+    font-size: 18px;
+    /* Large font size */
+    border: none;
+    /* No border */
+    border-radius: 10px;
+    /* Rounded corners */
+    padding: 14px 28px;
+    /* Large padding */
+    cursor: pointer;
+    /* Cursor on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+    animation: button-shimmer 2s infinite;
+    transition: all 0.3s ease-in-out;
+    /* Smooth transition */
+}
+
+.theme3-button:hover {
+    background: linear-gradient(to bottom, #3b3f3f, #aa7ecd);
+    animation: button-particles 1s ease-in-out infinite;
+    transform: translateY(-2px);
+}
+
+.theme3-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.theme-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }

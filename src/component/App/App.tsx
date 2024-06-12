@@ -1,21 +1,16 @@
-import React, { useState } from 'react';
-import '../../pages/App.css';
+// src/component/App/App.tsx
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import Game from '../Game/Game';
 
-function App() {
-  const [text, setText] = useState('');
-  const [displayText, setDisplayText] = useState('');
+const App: React.FC = () => {
+    const { theme = 'defaultTheme' } = useParams<{ theme: string }>();
 
-  const handleClick = () => {
-    setDisplayText(text);
-  };
-
-  return (
-      <div className="App">
-        <input type="text" value={text} onChange={(e) => { setText(e.target.value); }} />
-        <button onClick={() => { handleClick(); }}>Ok</button>
-        <p>{displayText}</p>
-      </div>
-  );
-}
+    return (
+        <div className="App">
+            <Game theme={theme} />
+        </div>
+    );
+};
 
 export default App;

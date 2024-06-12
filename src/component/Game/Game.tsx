@@ -2,6 +2,10 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Card from '../Cards/Cards';
 import '../../pages/App.css';
 
+interface GameProps {
+    theme: string;
+}
+
 // Créer un tableau d'objets pour les cartes du jeu
 interface CardType {
     id: number;
@@ -10,7 +14,7 @@ interface CardType {
     backimage: string;
 }
 
-const Game: React.FC = () => {
+const Game: React.FC<GameProps> = () => {
     const [isGameStarted, setIsGameStarted] = useState(false); // Détermine si le jeu a commencé
     const [isGameOver, setIsGameOver] = useState(false); // Détermine si le jeu est terminé
     const [flippedCards, setFlippedCards] = useState<number[]>([]); // Cartes retournées
