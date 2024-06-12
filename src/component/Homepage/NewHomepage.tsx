@@ -17,6 +17,7 @@ const NewHomepage: React.FC = () => {
 
     return (
         <div className="theme-button-container">
+            <h1>Choisissez un thème </h1>
             <ol>
                 <li className="slide-wrapper">
                     <div className="cartes">

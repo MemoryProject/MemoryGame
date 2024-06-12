@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(9deg, #6f6475 0%, #2c2544 100%);
+    background: linear-gradient(9deg, #25d2d2 0%, #25d2d2 100%);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -123,6 +123,10 @@ body > p {
     height: 300px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+
+.cartes {
+    box-shadow: 10px 10px 70px #000000;
 }
 
 
@@ -267,6 +271,7 @@ body > p {
 
 .theme-button-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
