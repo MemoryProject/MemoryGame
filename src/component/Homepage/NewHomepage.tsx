@@ -1,9 +1,20 @@
 // src/component/Homepage/NewHomepage.tsx
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const NewHomepage: React.FC = () => {
     const navigate = useNavigate();
+
+    useEffect(() => {
+        axios.get('http://memory.beltaria.fr/api/cards')
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, []);
 
     const handleThemeSelect = (theme: string) => {
         navigate(`/game/${theme}`);
