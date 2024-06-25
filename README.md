@@ -27,6 +27,7 @@ Si vous souhaitez contribuer à l'amélioration du jeu, suivez ces étapes simpl
 3. Committez vos changements (`git commit -am 'Ajout de fonctionnalité'`)
 4. Push vers la branche (`git push origin fonctionnalite/Amelioration`)
 5. Ouvrez une Pull Request
+6 . Mettez vous sur la branche DEV
 
 ## Commandes
 

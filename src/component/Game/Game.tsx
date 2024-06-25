@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Card from '../Cards/Cards';
 import '../../pages/App.css';
+import useApi from '../../Api/api';
 
 interface GameProps {
     theme: string;
@@ -21,8 +22,12 @@ const Game: React.FC<GameProps> = () => {
     const [matchedCards, setMatchedCards] = useState<number[]>([]); // Cartes correspondantes
     const [seconds, setSeconds] = useState<number>(0); // Temps écoulé
     const [moves, setMoves] = useState<number>(0); // Nombre de mouvements
-    const [cards, setCards] = useState<CardType[]>([]); // Cartes du jeu
+    // const [cards, setCards] = useState<CardType[]>([]); // Cartes du jeu
     const [errors, setErrors] = useState<number>(0);// Nombre d'erreurs
+
+    const { data: cards, error } = useApi<any>('cards/football');
+
+    console.log(error);
 
     useEffect(() => {
         let interval: NodeJS.Timeout;
@@ -40,105 +45,8 @@ const Game: React.FC<GameProps> = () => {
     useEffect(() => {
         if (!isGameStarted) {
             // Mélangez les cartes et affichez-les
-            const newCards = [
-                {
-                    id: 1,
-                    name: 'card1',
-                    image: './MemoryGame/images/book.png',
-                    backimage: './MemoryGame/images/card_back.png'
-                },
-                {
-                    id: 2,
-                    name: 'card2',
-                    image: './MemoryGame/images/bow_02.png',
-                    backimage: './MemoryGame/images/card_back.png'
-                },
-                {
-                    id: 3,
-                    name: 'card3',
-                    image: './MemoryGame/images/green_mushroom.png',
-                    backimage: './MemoryGame/images/card_back.png'
-                },
-                {
-                    id: 4,
-                    name: 'card4',
-                    image: './MemoryGame/images/ring_02.png',
-                    backimage: './MemoryGame/images/card_back.png'
-                },
-                {
-                    id: 5,
-                    name: 'card5',
-                    image: './MemoryGame/images/sword_01.png',
-                    backimage: './MemoryGame/images/card_back.png'
-                },
-                {
-                    id: 6,
-                    name: 'card6',
-                    image: './MemoryGame/images/wand_01.png',
-                    backimage: './MemoryGame/images/card_back.png'
-                },
-                {
-                    id: 7,
-                    name: 'card7',
-                    image: './MemoryGame/images/wooden_box.png',
-                    backimage: './MemoryGame/images/card_back.png'
-                },
-                {
-                    id: 8,
-                    name: 'card8',
-                    image: './MemoryGame/images/wooden_shield.png',
-                    backimage: './MemoryGame/images/card_back.png'
-                },
-                {
-                    id: 9,
-                    name: 'card1',
-                    image: './MemoryGame/images/book.png',
-                    backimage: './MemoryGame/images/card_back.png'
-                },
-                {
-                    id: 10,
-                    name: 'card2',
-                    image: './MemoryGame/images/bow_02.png',
-                    backimage: './MemoryGame/images/card_back.png'
-                },
-                {
-                    id: 11,
-                    name: 'card3',
-                    image: './MemoryGame/images/green_mushroom.png',
-                    backimage: './MemoryGame/images/card_back.png'
-                },
-                {
-                    id: 12,
-                    name: 'card4',
-                    image: './MemoryGame/images/ring_02.png',
-                    backimage: './MemoryGame/images/card_back.png'
-                },
-                {
-                    id: 13,
-                    name: 'card5',
-                    image: './MemoryGame/images/sword_01.png',
-                    backimage: './MemoryGame/images/card_back.png'
-                },
-                {
-                    id: 14,
-                    name: 'card6',
-                    image: './MemoryGame/images/wand_01.png',
-                    backimage: './MemoryGame/images/card_back.png'
-                },
-                {
-                    id: 15,
-                    name: 'card7',
-                    image: './MemoryGame/images/wooden_box.png',
-                    backimage: './MemoryGame/images/card_back.png'
-                },
-                {
-                    id: 16,
-                    name: 'card8',
-                    image: './MemoryGame/images/wooden_shield.png',
-                    backimage: './MemoryGame/images/card_back.png'
-                }
-            ].sort(() => Math.random() - 0.5);
-            setCards(newCards);
+            const newCards = cards.sort(() => Math.random() - 0.5);
+            // setCards(newCards);
         }
     }, [isGameStarted]);
 
