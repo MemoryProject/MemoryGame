@@ -1,29 +1,15 @@
 // src/component/Homepage/NewHomepage.tsx
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import useApi from '../../Api/api';
+import Game from '../Game/Game';
 
 const NewHomepage: React.FC = () => {
     const navigate = useNavigate();
+    const { data: cards, error } = useApi<any>('cards/football');
 
-    useEffect(() => {
-        axios.get('http://memory.beltaria.fr/api/cards')
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }, []);
-
-    const handleThemeSelect = (theme: string) => {
+    const handleThemeSelect = async (theme: string) => {
         navigate(`/game/${theme}`);
-    };
-
-    const changeImages = () => {
-        const rdm = () => 400 + Math.floor(Math.random() * 300);
-        const images = document.querySelectorAll('img');
-        images.forEach(img => { img.setAttribute('src', `https://picsum.photos/${rdm()}/${rdm()}/?random`); });
     };
 
     return (
@@ -76,6 +62,12 @@ const NewHomepage: React.FC = () => {
                 </li>
 
             </ol>
+
+            {cards.map((card: any, index: number) => (
+    <div key={index} className="cards">
+        <img src={card.imageUrl} alt={`Cards ${index}`} />
+    </div>
+))}
         </div>
     );
 };
