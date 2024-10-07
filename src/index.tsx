@@ -11,15 +11,4 @@ const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 
-root.render(
-    <React.StrictMode>
-        <Router>
-            <Routes>
-                <Route path="/game/:theme" element={<App />} />
-                <Route path="/" element={<NewHomepage />} />
-            </Routes>
-        </Router>
-    </React.StrictMode>
-);
-
 reportWebVitals();
