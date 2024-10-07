@@ -1,7 +1,7 @@
 {
   "name": "memory",
   "version": "0.1.0",
-  "homepage": "https://memoryproject.github.io/MemoryGame/",
+  "homepage": "https://memoryproject.github.io/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -12,8 +12,11 @@
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "@typescript-eslint/parser": "^6.21.0",
+    "axios": "^1.7.2",
+    "jest": "^27.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
     "typescript": "*",
     "web-vitals": "^2.1.4",

@@ -1,17 +1,278 @@
+body {
+    background: linear-gradient(9deg, #25d2d2 0%, #25d2d2 100%);
+    font-family: 'Roboto', sans-serif;
+}
+
 .game-frame {
-  border: 2px solid black;
-  padding: 150px;
-  width: 80%;
-  margin: auto;
-  background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .card-image {
-  width: 150px;
-  height: 150px;
+    width: 150px;
+    height: 150px;
+    image-rendering: pixelated;
 }
 
-.startGame {
-  width: 300px; /* Augmentez cette valeur pour augmenter la largeur du bouton */
-  height: 50px; /* Augmentez cette valeur pour augmenter la hauteur du bouton */
+.memory-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Espacement autour des cartes */
+    align-items: center; /* Centrer les cartes verticalement */
+    padding: 20px; /* Ajouter un peu d'espace autour des cartes */
+    grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+    gap: 20px; /* Espacement entre les cartes */
+    justify-items: center; /* Centrer les cartes horizontalement */
+    /* Centrer les cartes verticalement */
+    width: 660px;
+    min-height: 680px;
+    background: #2e3d49;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    margin: auto;
+}
+
+.card {
+    margin: 10px;
+    position: relative;
+    height: 125px;
+    width: 125px;
+    background: #2e3d49;
+    cursor: pointer;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    z-index: 1;
+    border-radius: 21px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.card img {
+    width: 130px; /* La largeur de l'image sera la même que celle de son conteneur */
+    height: 130px; /* La hauteur de l'image sera la même que celle de son conteneur */
+    object-fit: cover; /* L'image sera redimensionnée pour couvrir entièrement son conteneur tout en conservant son aspect ratio */
+}
+
+.card-flipped {
+    transform: rotateY(180deg);
+}
+
+.score-panel {
+    display: flex;
+    text-align: left;
+    width: 620px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.score-panel p {
+    margin: 0;
+}
+
+.restart-button {
+    padding: 2px 4px;
+    border: none;
+    border-radius: 8px;
+    background: #6a98c8;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 27px;
+    height: 27px;
+}
+
+
+.slide-wrapper {
+    display: inline-block;
+    margin: 1em;
+}
+
+.slide-wrapper img {
+    display: block;
+}
+
+.slide-wrapper .content {
+    background: rgb(238, 243, 242);
+    padding: 2rem;
+    display: inline-block;
+    min-width: 100%;
+    width: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+
+
+body > * {
+    text-align: left;
+}
+
+body > p {
+    text-align: right;
+}
+
+.photo {
+    width: 400px;
+    height: 300px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.cartes {
+    box-shadow: 10px 10px 70px #000000;
+}
+
+
+.cartes:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.content {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background: #f1f1f1;
+}
+
+
+.theme1-button {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(to bottom, #1b1c3f, #aa7ecd);
+    /* Gradient background */
+    color: #ffffff;
+    /* White text color */
+    font-family: "Segoe UI", sans-serif;
+    /* Stylish and legible font */
+    font-weight: bold;
+    font-size: 18px;
+    /* Large font size */
+    border: none;
+    /* No border */
+    border-radius: 10px;
+    /* Rounded corners */
+    padding: 14px 28px;
+    /* Large padding */
+    cursor: pointer;
+    /* Cursor on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+    animation: button-shimmer 2s infinite;
+    transition: all 0.3s ease-in-out;
+    /* Smooth transition */
+}
+
+
+.theme1-button:hover {
+    background: linear-gradient(to bottom, #3b3f3f, #aa7ecd);
+    animation: button-particles 1s ease-in-out infinite;
+    transform: translateY(-2px);
+
+}
+
+.theme1-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.theme2-button {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(to bottom, #1b1c3f, #aa7ecd);
+    /* Gradient background */
+    color: #ffffff;
+    /* White text color */
+    font-family: "Segoe UI", sans-serif;
+    /* Stylish and legible font */
+    font-weight: bold;
+    font-size: 18px;
+    /* Large font size */
+    border: none;
+    /* No border */
+    border-radius: 10px;
+    /* Rounded corners */
+    padding: 14px 28px;
+    /* Large padding */
+    cursor: pointer;
+    /* Cursor on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+    animation: button-shimmer 2s infinite;
+    transition: all 0.3s ease-in-out;
+    /* Smooth transition */
+
+}
+
+.theme2-button:hover {
+    background: linear-gradient(to bottom, #3b3f3f, #aa7ecd);
+    animation: button-particles 1s ease-in-out infinite;
+    transform: translateY(-2px);
+}
+
+.theme2-button:hover:after {
+    -webkit-transform: scale(2) rotate(180deg);
+    transform: scale(2) rotate(180deg);
+    box-shadow:  4px 4px 6px 0 rgba(59, 55, 152, 0.5),
+    -4px -4px 6px 0 rgba(116, 125, 136, .2),
+    inset -4px -4px 6px 0 rgba(102, 31, 224, 0.47),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+}
+
+.theme2-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.theme3-button {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(to bottom, #1b1c3f, #aa7ecd);
+    /* Gradient background */
+    color: #ffffff;
+    /* White text color */
+    font-family: "Segoe UI", sans-serif;
+    /* Stylish and legible font */
+    font-weight: bold;
+    font-size: 18px;
+    /* Large font size */
+    border: none;
+    /* No border */
+    border-radius: 10px;
+    /* Rounded corners */
+    padding: 14px 28px;
+    /* Large padding */
+    cursor: pointer;
+    /* Cursor on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+    animation: button-shimmer 2s infinite;
+    transition: all 0.3s ease-in-out;
+    /* Smooth transition */
+}
+
+.theme3-button:hover {
+    background: linear-gradient(to bottom, #3b3f3f, #aa7ecd);
+    animation: button-particles 1s ease-in-out infinite;
+    transform: translateY(-2px);
+}
+
+.theme3-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.theme-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
